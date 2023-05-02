@@ -25,9 +25,8 @@ def update_product(db: Session, product: ProductCreate, product_update: ProductU
     db.refresh(product)
     return product
 
-def delete_user(db: Session, product_id:int):
+def delete_user(db: Session, product:Product):
     try:
-        product = db.query(Product).filter(Product.id == product_id).first()
         db.delete(product)
         db.commit()
         return "Product deleted"

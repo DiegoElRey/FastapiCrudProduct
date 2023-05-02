@@ -76,7 +76,7 @@ async def borrar_producto(id_product:int, db: Session = Depends(get_db)):
         if db_product is None:
             return JSONResponse(content={"message": "Product not found"},
                                  status_code=status.HTTP_404_NOT_FOUND)
-        return delete_user(db=db, product_id=id_product)
+        return delete_user(db=db, product=db_product)
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
